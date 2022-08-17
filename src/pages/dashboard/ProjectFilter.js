@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const filterList = ['all', 'mine', 'development', 'design', 'marketing', 'sales']
+const filterList = ['all',  'tour', 'sight-seeing', 'sports']
 
 export default function ProjectFilter({ changeFilter }) {
   const [currentFilter, setCurrentFilter] = useState('all')

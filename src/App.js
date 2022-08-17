@@ -14,6 +14,7 @@ import Navbar from './components/Navbar'
 import Sidebar from './components/Sidebar'
 import OnlineUsers from './components/OnlineUsers'
 import Footer from './components/Footer'
+import Home from './pages/Home'
 
 function App() {
   const { authIsReady, user } = useAuthContext()
@@ -26,8 +27,12 @@ function App() {
           <div className="container">
             <Navbar />
             <Switch>
-              <Route exact path="/">
-                {!user && <Redirect to="/login" />}
+              <Route exact path='/'>
+                {!user &&<Home />}
+                {user &&<Redirect to='dash' />}
+              </Route>
+              <Route path="/dash">
+                {!user && <Redirect to="/" />}
                 {user && <Dashboard />}
               </Route>
               <Route path="/create">

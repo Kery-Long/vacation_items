@@ -4,7 +4,8 @@
 .project-filter nav {
   display: flex;
   padding: 10px;
-  background-color: #fff;
+  /* background-color: #fff; */
+  border: 1px solid #0b56a4;
   border-radius: 4px;
 }
 .project-filter p {
@@ -16,14 +17,16 @@
   border: 0;
   font-family: inherit;
   font-weight: bold;
-  color: var(--text-color);
+  color: #0b56a4;
   cursor: pointer;
-  border-right: 1px solid #e4e4e4;
+  border-right: 1px solid #0b56a4;
   font-size: 0.9em;
 }
 .project-filter button:last-child {
-  border: 0;
+  border-right: 1px solid #0b56a4;
+
 }
 .project-filter button.active {
-  color: var(--primary-color);
+  color: #e8dec5;
+  background-color: #0b56a4;
 } 

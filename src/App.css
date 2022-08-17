@@ -1,8 +1,13 @@
 .App {
+  height:100%;
   display: flex;
+  background-color: #e8dec5;
 }
 .App .container{
   flex-grow: 1;
   padding: 0 60px;
   background-color: #e8dec5;
+}
+.home-text{
+  color:#0b56a4;
 }

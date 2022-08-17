@@ -10,11 +10,25 @@ import Select from 'react-select'
 import './Create.css'
 
 const categories = [
-  { value: 'development', label: 'Development' },
-  { value: 'design', label: 'Design' },
-  { value: 'sales', label: 'Sales' },
-  { value: 'marketing', label: 'Marketing' },
+  { value: 'tour', label: 'tour' },
+  { value: 'sight-seeing', label: 'sight-seeing' },
+  { value: 'sports', label: 'sports' },
+  
 ]
+const customStyles = {
+  control: (base, state) => ({
+    ...base,
+    background: "#e8dec5",
+    // Overwrittes the different states of border
+    borderColor: state.isFocused ? "orange" : "#0b56a4",
+    // Removes weird border around container
+    boxShadow: state.isFocused ? null : null,
+    "&:hover": {
+      // Overwrittes the different states of border
+      borderColor: state.isFocused ? "red" : "blue"
+    }
+  })
+};
 
 export default function Create() {
   const history = useHistory()
@@ -28,7 +42,9 @@ export default function Create() {
   const [details, setDetails] = useState('')
   // const [dueDate, setDueDate] = useState('')
   const [category, setCategory] = useState('')
-  const [assignedUsers, setAssignedUsers] = useState([])
+  // const [assignedUsers, setAssignedUsers] = useState([])
+  const [cost, setCost] = useState('')
+  const [link, setLink] = useState('')
   const [formError, setFormError] = useState(null)
 
   // create user values for react-select
@@ -48,18 +64,18 @@ export default function Create() {
       setFormError('Please select a project category.')
       return
     }
-    if (assignedUsers.length < 1) {
-      setFormError('Please assign the project to at least 1 user')
-      return
-    }
+    // if (assignedUsers.length < 1) {
+    //   setFormError('Please assign the project to at least 1 user')
+    //   return
+    // }
 
-    const assignedUsersList = assignedUsers.map(u => {
-      return { 
-        displayName: u.value.displayName, 
-        photoURL: u.value.photoURL,
-        id: u.value.id
-      }
-    })
+    // const assignedUsersList = assignedUsers.map(u => {
+    //   return { 
+    //     displayName: u.value.displayName, 
+    //     photoURL: u.value.photoURL,
+    //     id: u.value.id
+    //   }
+    // })
     const createdBy = { 
       displayName: user.displayName, 
       photoURL: user.photoURL,
@@ -69,7 +85,9 @@ export default function Create() {
     const project = {
       name,
       details,
-      assignedUsersList, 
+      // assignedUsersList, 
+      cost,
+      link,
       createdBy,
       category: category.value,
       // dueDate: timestamp.fromDate(new Date(dueDate)),
@@ -87,7 +105,7 @@ export default function Create() {
       <h2 className="page-title">Create a new option</h2>
       <form onSubmit={handleSubmit}>
         <label>
-          <span>Project name:</span>
+          <span>Option name:</span>
           <input
             required 
             type="text" 
@@ -96,12 +114,31 @@ export default function Create() {
           />
         </label>
         <label>
-          <span>option Details:</span>
+          <span>Option Details:</span>
           <textarea 
             required
             onChange={(e) => setDetails(e.target.value)}
             value={details} 
           ></textarea>
+        </label>
+        <label>
+          <span>Option cost:</span>
+          <input
+            required 
+            type="text" 
+            onChange={(e) => setCost(e.target.value)}
+            value={cost}
+          />
+        </label>
+
+        <label>
+          <span>Link:</span>
+          <input
+            required 
+            type="text" 
+            onChange={(e) => setLink(e.target.value)}
+            value={link}
+          />
         </label>
         {/* <label>
           <span>Set due date:</span>
@@ -113,20 +150,21 @@ export default function Create() {
           />
         </label> */}
         <label>
-          <span>option category:</span>
+          <span>Option category:</span>
           <Select
+          styles={customStyles}
             onChange={(option) => setCategory(option)}
             options={categories}
           />
         </label>
-        <label>
+        {/* <label>
           <span>Assign to:</span>
           <Select
             onChange={(option) => setAssignedUsers(option)}
             options={users}
             isMulti
           />
-        </label>
+        </label> */}
 
         <button className="btn">Add option</button>
 

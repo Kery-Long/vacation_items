@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom'
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { projectFirestore } from "../../firebase/config";
 import trash from '../../assets/delete.svg';
+import './Project.css'
 
 export default function ProjectSummary({ project }) {
   // const { deleteDocument } = useFirestore('projects')
@@ -33,10 +34,15 @@ export default function ProjectSummary({ project }) {
         {/* <p className="due-date">
           Potential date: {project.dueDate.toDate().toDateString()}
         </p> */}
+        <p className="details-label">Brief description:</p>
         <p className="details">
           {project.details}
         </p>
-        
+       <p className="details-label">Option website:</p>
+        <a href={project.link}><p className="details">{project.link}</p></a>
+        <p className="details-label">Option cost:</p>
+        <p className="details">{project.cost}</p>
+{/*         
         <h4>Project assigned to:</h4>
         <div className="assigned-users">
           {project?.assignedUsersList?.map(user => (
@@ -44,11 +50,11 @@ export default function ProjectSummary({ project }) {
               <Avatar src={user.photoURL} />
             </div>
           ))}
-        </div>
+        </div> */}
       
-      {user.uid === project.createdBy.id && (
+      {/* {user.uid === project.createdBy.id && (
         <button className="btn" onClick={handleClick}>Mark as Complete</button>
-      )}
+      )} */}
       </div>
    
   )

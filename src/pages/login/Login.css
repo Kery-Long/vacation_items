@@ -1,0 +1,13 @@
+form.auth-form{
+    background-color: #e8dec5;
+    color:#0b45a4
+    
+}
+input{
+    background-color: #f5edd7;
+    
+    border: 1px solid #0b45a4;  
+}
+h2{
+    color:#0b45a4;
+}

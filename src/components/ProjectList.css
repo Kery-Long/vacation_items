@@ -5,16 +5,17 @@
   grid-gap: 20px;
 }
 .project-list a {
-  background-color: #fff;
+  background-color: #f5edd7;
+  color: #0b56a4;  
   padding: 16px;
   border-radius: 6px;
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.05);
-  text-decoration: none;
-  color: inherit;
+  text-decoration: underline;
+
 }
 .project-list h4 {
   font-size: 0.9em;
-  color: var(--heading-color);
+  color: 0b56a4;
 }
 .project-list p {
   color: var(--text-color);

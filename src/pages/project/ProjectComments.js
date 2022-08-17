@@ -4,6 +4,7 @@ import { useAuthContext } from "../../hooks/useAuthContext"
 import { useFirestore } from "../../hooks/useFirestore"
 import Avatar from "../../components/Avatar"
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
+import'./Project.css'
 
 export default function ProjectComments({ project }) {
   const { user } = useAuthContext()
@@ -31,11 +32,13 @@ export default function ProjectComments({ project }) {
 
   return (
     <div className="project-comments">
-      <h4>Project Comments</h4>
+      <h4> Comments:</h4>
+      <p>Add your name in a comment if you're interested.</p>
+      <hr />
 
       <ul>
         {project.comments.length > 0 && project.comments.map(comment => (
-          <li key={comment.id}>
+          <li className="comment" key={comment.id}>
             <div className="comment-author">
               <Avatar src={comment.photoURL} />
               <p>{comment.displayName}</p>

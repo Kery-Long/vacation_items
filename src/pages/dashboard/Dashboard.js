@@ -24,7 +24,7 @@ export default function Dashboard() {
         return true
       case 'mine':
         let assignedToMe = false
-        document.assignedUsersList.forEach(u => {
+        document?.assignedUsersList?.forEach(u => {
           if(u.id === user.uid) {
             assignedToMe = true
           }

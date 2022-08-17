@@ -14,7 +14,7 @@ export default function Navbar() {
     <nav className="navbar">
       <ul>
         <li className="logo">
-          <img src={Temple} alt="dojo logo" />
+          <a href='/'><img src={Temple} alt="dojo logo" /></a>
           <span>Trip Activity Options</span>
         </li>
 

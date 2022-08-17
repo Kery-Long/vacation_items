@@ -3,8 +3,9 @@
   min-width: 250px;
   padding: 30px;
   box-sizing: border-box;
-  background: #fbfbfb;
+  background: #e8dec5;
   color: var(--heading-color);
+  border-left: 1px solid #0b56a4;
 }
 .user-list h2 {
   text-align: right;

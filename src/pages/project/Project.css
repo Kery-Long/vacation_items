@@ -7,8 +7,9 @@
 
 /* project summary */
 .project-summary {
-  background-color: #fff;
+  background-color: #e8dec5;
   padding: 30px;
+  border: 1px solid #0b56a4;
   border-radius: 4px;
 }
 .project-summary .due-date {
@@ -18,12 +19,12 @@
 }
 .project-summary .details {
   margin: 30px 0;
-  color: var(--text-color);
+  color: #0b56a4;
   line-height: 1.8em;
   font-size: 0.9em;
 }
 .project-summary h4 {
-  color: var(--text-color);
+  color: #0b56a4;
   font-size: 0.9em;
 }
 .project-summary .assigned-users {
@@ -103,8 +104,72 @@
   width:100%;
 }
 .trash{
-  display:flex;
-  justify-content:right;
-  width:1.5em;
-  height: 1.5em;
+ position:relative ;
+ top:5px;
+ right: 5px;
+ cursor: pointer;
+ background-color: #0b56a4;
+ border-radius: 8px;
+ margin-bottom: .75em;
+ margin-right: 3em;
+ 
+  
+}
+.update{
+  position:relative;
+  top: 5px;
+  right:5px;
+  background-color: #0b56a4;
+ border-radius: 8px;
+ margin-bottom: .75em;
+ /* margin-left: 15em; */
+  
+}
+
+.btn{
+  color:#e8dec5;
+  background-color: #0b56a4;
+}
+input[type="text"], textarea {
+  padding: 8px 6px;
+  font-size: 1em;
+  background-color: #f5edd7;
+  color: #0b56a4;
+  width: 100%;
+  box-sizing: border-box;
+  /* border: 1px solid rgb(220, 24, 24); */
+  border-radius: 4px;
+}
+li.comment{
+  background-color: #7ab2ec;
+  
+  
+}
+div.comment-author{
+  color:#0b56a4;
+  font-weight:400;
+  font-size: 1em;
+}
+div.comment-date {
+  color: #0b56a4;
+  font-weight: 200;
+  font-size: .7em;
+}
+div.comment-content{
+  color:#0b56a4;
+  font-weight:300;
+  font-size: .75em;
+}
+.details-label{
+  margin-top: 1em;
+font-weight: 500;
+
+  color: #0b45a4;
+}
+h2.page-title{
+  text-decoration: underline;
+  font-size:1em;
+}
+p.details{
+  margin-top:0em;
 }
