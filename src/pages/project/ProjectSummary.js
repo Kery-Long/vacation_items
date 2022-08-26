@@ -3,8 +3,10 @@ import Avatar from "../../components/Avatar"
 import { useHistory } from 'react-router-dom'
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { projectFirestore } from "../../firebase/config";
+import ProjectInterested from './ProjectInterested';
 import trash from '../../assets/delete.svg';
 import './Project.css'
+// import userEvent from '@testing-library/user-event';
 
 export default function ProjectSummary({ project }) {
   // const { deleteDocument } = useFirestore('projects')
@@ -15,6 +17,8 @@ export default function ProjectSummary({ project }) {
     projectFirestore.collection('projects').doc(id).delete()
     history.push('/')
   }
+
+
 
 
   return (
@@ -42,15 +46,18 @@ export default function ProjectSummary({ project }) {
         <a href={project.link}><p className="details">{project.link}</p></a>
         <p className="details-label">Option cost:</p>
         <p className="details">{project.cost}</p>
-{/*         
-        <h4>Project assigned to:</h4>
-        <div className="assigned-users">
-          {project?.assignedUsersList?.map(user => (
-            <div key={user.id}>
-              <Avatar src={user.photoURL} />
-            </div>
-          ))}
-        </div> */}
+
+        <ProjectInterested project={document} />
+      
+        
+         <h4>Project assigned to:</h4>
+         <div className="assigned-users">
+           {project?.assignedUsersList?.map(user => (
+             <div key={user.id}>
+               <Avatar src={user.photoURL} />
+             </div>
+           ))}
+         </div>
       
       {/* {user.uid === project.createdBy.id && (
         <button className="btn" onClick={handleClick}>Mark as Complete</button>

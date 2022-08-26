@@ -26,9 +26,11 @@
   margin-top: 80px;
   margin-left: 20px;
   color: #0b56a4;
+ 
 }
 .sidebar .links li {
   margin-top: 10px;
+  border-bottom: 1px solid #0b56a4;
 }
 .sidebar .links a {
   display: flex;

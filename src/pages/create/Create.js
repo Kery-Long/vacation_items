@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react'
-import { useCollection } from '../../hooks/useCollection'
+import { useState } from 'react'
+// import { useCollection } from '../../hooks/useCollection'
 import { useAuthContext } from '../../hooks/useAuthContext'
 // import { timestamp } from '../../firebase/config'
 import { useFirestore } from '../../hooks/useFirestore'
@@ -12,7 +12,8 @@ import './Create.css'
 const categories = [
   { value: 'tour', label: 'tour' },
   { value: 'sight-seeing', label: 'sight-seeing' },
-  { value: 'sports', label: 'sports' },
+  { value: 'beer', label: 'beer' },
+  { value: 'family', label: 'family' },
   
 ]
 const customStyles = {
@@ -34,8 +35,8 @@ export default function Create() {
   const history = useHistory()
   const { addDocument, response } = useFirestore('projects')
   const { user } = useAuthContext() 
-  const { documents } = useCollection('users')
-  const [users, setUsers] = useState([])
+  // const { documents } = useCollection('users')
+  // const [users, setUsers] = useState([])
 
   // form field values
   const [name, setName] = useState('')
@@ -48,13 +49,13 @@ export default function Create() {
   const [formError, setFormError] = useState(null)
 
   // create user values for react-select
-  useEffect(() => {
-    if(documents) {
-      setUsers(documents.map(user => {
-        return { value: {...user, id: user.id}, label: user.displayName }
-      }))
-    }
-  }, [documents])
+  // useEffect(() => {
+  //   if(documents) {
+  //     setUsers(documents.map(user => {
+  //       return { value: {...user, id: user.id}, label: user.displayName }
+  //     }))
+  //   }
+  // }, [documents])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -152,6 +153,7 @@ export default function Create() {
         <label>
           <span>Option category:</span>
           <Select
+         
           styles={customStyles}
             onChange={(option) => setCategory(option)}
             options={categories}

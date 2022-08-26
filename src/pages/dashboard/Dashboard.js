@@ -30,10 +30,10 @@ export default function Dashboard() {
           }
         })
         return assignedToMe
-      case 'development':
-      case 'design':
-      case 'sales':
-      case 'marketing':
+      case 'tour':  
+      case 'sight-seeing':
+      case 'beer':
+        case 'family':
         console.log(document.category, filter)
         return document.category === filter
       default:
